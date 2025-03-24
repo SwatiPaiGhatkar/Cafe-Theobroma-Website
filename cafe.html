@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAFE THEOBROMA🧋</title>
+    <style text="text/css">
+      * {
+        text-decoration: none;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .backgroundImage {
+        background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/160/765/original/CafeTheobroma-072.jpg?1742432619");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+      .navbar {
+        position: sticky;
+        z-index: 1000;
+        top: 0;
+        background: #395a69;
+        font-family: "Courier New", Courier, monospace;
+        padding: 20px 50px;
+        border-radius: 10px;
+        border-color: #395a69;
+        text-shadow: 1px 1px 2px #460702;
+        font-size: 40px;
+        font-weight: 400;
+        color: ghostwhite;
+      }
+      .navdiv {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .h1 {
+        font-size: 40px;
+        font-weight: 600;
+        font-family: "Courier New", Courier, monospace;
+        margin: 0 auto;
+        text-shadow: 1px 1px 2px #460702;
+        border-radius: 10px;
+        color: ghostwhite;
+        display: block;
+        padding: 20px 50px;
+        border-color: #395a69;
+        background-color: #395a69;
+      }
+      h2 {
+        font-size: 25px;
+        color: #fdfdfd !important;
+        margin-inline-start: 20px;
+        margin-inline-end: 20px;
+        margin-top: 0 auto;
+        text-align: center;
+        text-decoration: solid;
+        line-height: 48px;
+        font-weight: 400;
+        font-family: FuturaStd-Book, sans-serif;
+        text-transform: uppercase;
+      }
+      .img {
+        size: 100%;
+        background-clip: text;
+        display: block;
+      }
+
+      li {
+        display: inline;
+        text-decoration: none;
+        margin: 0 20px;
+        color: #fdfdfd;
+        text-decoration: none;
+        font-size: 20px;
+        text-align: right;
+        list-style: none;
+      }
+
+      .nav-links {
+        font-size: 20px;
+        text-align: right;
+        list-style: none;
+      }
+
+      .nav-links li {
+        display: inline;
+        text-decoration: none;
+        margin: 0 20px;
+      }
+
+      .nav-links a {
+        color: ghostwhite;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: white;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .contactUs {
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 22px;
+        padding: 12px 20px;
+        text-decoration-style: double;
+        border-radius: 10px;
+        background-color: black;
+        color: #fdfdfd;
+      }
+      button:hover {
+        background: white;
+        color: #395a69;
+        border-color: black;
+        cursor: pointer;
+        transition: all 200ms ease;
+      }
+
+      article {
+        color: #fdfdfd !important;
+        text-wrap: pretty;
+        text-align: center;
+        margin-block-start: 55em;
+        margin-block-end: 5%;
+        margin-inline-start: 20em;
+        margin-inline-end: 20em;
+        font-size: 18px;
+        line-height: 1.5;
+        display: block;
+        font-family: FuturaStd-Book, sans-serif;
+        contain: content;
+        background-color: #395a69;
+      }
+
+      .eat-section {
+        background-color: white;
+        padding: 50px;
+        margin: 50px auto;
+        max-width: 1200px;
+      }
+
+      .eat-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: #395a69;
+      }
+
+      .eat-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .eat-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .eat-image-container {
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .eat-image-container:hover .eat-image {
+        transform: scale(1.05);
+        filter: brightness(1.1) contrast(1.1);
+      }
+      .eat-image-container::after {
+        content: "Exquisite Dining";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(57, 90, 105, 0.6);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: bold;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+      .eat-content {
+        color: #333;
+        line-height: 1.8;
+        font-size: 18px;
+      }
+
+      @media (max-width: 768px) {
+        .eat-grid {
+          grid-template-columns: 1fr;
+        }
+        article {
+          margin-inline-start: 1em;
+          margin-inline-end: 1em;
+          margin-block-start: 25em;
+        }
+      }
+      .drink-section {
+        background-color: white;
+        padding: 50px;
+        margin: 50px auto;
+        max-width: 1200px;
+      }
+      .drink-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: #395a69;
+      }
+
+      .drink-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .drink-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .drink-image-container {
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .drink-image-container:hover .drink-image {
+        transform: scale(1.05);
+        filter: brightness(1.1) contrast(1.1);
+      }
+      .drink-image-container::after {
+        content: "Exquisite Drinks";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(57, 90, 105, 0.6);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: bold;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+
+      .drink-content {
+        color: #333;
+        line-height: 1.8;
+        font-size: 18px;
+      }
+
+      @media (max-width: 768px) {
+        .drink-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .footer {
+        text-align: center;
+        margin: 0 Auto;
+        display: block;
+        color: #fdfdfd;
+        font-size: large;
+        padding: 10px 10px;
+        background-color: #395a69;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="backgroundImage"></div>
+
+    <header>
+      <nav class="navbar">
+        <div class="navdiv">
+          <h1 class="h1">CAFE THEOBROMA</h1>
+          <ul class="nav-links">
+            <li>
+              <a
+                href="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/160/764/original/Menu-CafeTheobroma.jpg?1742432392"
+                target="_blank"
+                >MENU</a
+              >
+            </li>
+            <li>EVENT & RESERVATIONS</li>
+            <li>INSTAGRAM</li>
+            <button class="contactUs">CONTACT US</button>
+          </ul>
+        </div>
+      </nav>
+
+      <div>
+        <article>
+          <h2>Experience the extraordinary</h2>
+          <p>
+            Housed in a heritage-listed powerhouse, Cafe Theobroma is an all-day
+            dining destination located in the heart of Melbourne's CBD. Six
+            connected levels wrap around the perimeter of the original brick
+            building to create a suite of intimate tiered platforms. An
+            evocative, inventive, and highly curated menu offers guests the very
+            best that Melbourne has to offer.
+          </p>
+        </article>
+      </div>
+
+      <div class="eat-section">
+        <h3 class="eat-title">EAT</h3>
+
+        <div class="eat-grid">
+          <div class="eat-image-container">
+            <img
+              class="eat-image"
+              src="https://highergroundmelbourne.com.au/wp-content/uploads/2023/07/HG_5.png"
+              alt="Cafe Theobroma food"
+            />
+          </div>
+
+          <div class="eat-content">
+            <p>
+              Cafe Theobroma is an all-day dining destination welcoming guests
+              from morning through to late afternoon and offers a unique and
+              refined blend of a café and restaurant.
+            </p>
+            <p>
+              Start the day with their fiery Chilli Scrambled Eggs or Avocado
+              Pretzel, an elevated rendition of the classic avocado toast. End
+              your meal on a sweet note with the signature Blueberry and Ricotta
+              Hotcakes — light, fluffy and adored for a reason.
+            </p>
+            <p>
+              The dining room ceilings are 15 metres high and the space floods
+              with natural light during the day. The upstairs level – which
+              comes with its own barista station – is an unhurried lounge to
+              read, work or eat a meal in.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="drink-section">
+        <h3 class="drink-title">DRINK</h3>
+
+        <div class="drink-grid">
+          <div class="drink-image-container">
+            <img
+              class="drink-image"
+              src="https://www.crossipdrinks.com/cdn/shop/articles/cocktails_versus_mocktails_3_1296x.jpg?v=1640708157"
+              alt="Cafe Theobroma drink"
+            />
+          </div>
+          <div class="drink-content">
+            <p>
+              The long stainless-steel bar brews a range of coffee, speciality
+              teas and curated cocktails.
+            </p>
+            <p>
+              Enjoy their custom blend of specialty espresso — the ethically
+              sourced beans are grinded to perfection. Quality coffee is a main
+              focal point of Cafe Theobroma experience, so much so that it
+              necessitates a separate coffee menu — including a barista's
+              breakfast tasting board of Five Senses coffee and several
+              pour-over and batch brew options.
+            </p>
+            <p>
+              The wine list is short but sweet, featuring only the finest range
+              of local and imported producers.
+            </p>
+          </div>
+        </div>
+      </div>
+      <p class="footer">Coded by Swati Pai</p>
+    </header>
+
+    <script>
+      function bookingInformation() {
+        let name = prompt("What is your full name?");
+        let mobileNumber = prompt("What is your best contact number?");
+        let bookingDate = prompt("What date would you like to make a booking?");
+        alert(
+          "Thank you for your information. We will be in touch shortly to confirm your booking."
+        );
+      }
+      let contactUs = document.querySelector("button");
+      contactUs.addEventListener("click", bookingInformation);
+    </script>
+  </body>
+</html>
